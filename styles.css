@@ -1,0 +1,203 @@
+body {
+    background-color:#f4f4f4;
+    color: #555;
+    font-size: 16px;
+    line-height: 1.6em;
+    margin:0;
+}
+
+@font-face {
+    font-family:"default";
+    src:url("text/Sansation_Light.ttf");
+}
+
+@font-face {
+    font-family:"default";
+    src:url("text/Sansation_Bold.ttf");
+    font-weight:bold;
+}
+
+@font-face {
+    font-family:"default";
+    src:url("text/Sansation_Italic.ttf");
+    font-style:italic;
+}
+
+* {
+    font-family:"default";
+}
+
+.container {
+    width: 80%;
+    margin:inherit; /* Margin inherited from parent element */
+    margin:auto; /* takes width and remaining space is split between left and right margins */
+    overflow:hidden;
+}
+
+
+.art-container {
+    width: 80%;
+    margin:inherit; 
+    margin:auto; 
+}
+
+.main-header {
+    background-color:rgba(30, 6, 61, 0.692);
+    color:#fff;
+}
+
+#navbar {
+    background-color:#333;
+    color:#fff;
+}
+
+#navbar ul {
+    padding:0px;
+    list-style:none;
+}
+
+#navbar li {
+    display:inline;
+    padding-right:15px;
+}
+
+#navbar a {
+    color:#fff;
+    text-decoration:none;
+    font-size:18px;
+    padding-right:15px;
+}
+
+#navbar a:hover {
+    color:rgba(194, 163, 235, 0.692);
+}
+
+#showcase {
+    background-image: url("images/showcase.png");
+    background-size:cover;
+    background-position:48% 38%;
+    background-repeat: no-repeat;
+    min-height:200px; /* img height grows as text grows (like if screen is smaller) */
+    max-height:300px;
+    margin-bottom:30px;
+}
+
+/* for future reference */
+#featured { 
+    background-image:url("images/me.png");
+    background-position:cover;
+    background-size:cover; /* padding adds to height and width!!!! */
+    width:3%; /* padding is dependent on width of the element when defined in % */
+    padding:15%; /* padding should be 20% of the width of the containing element */
+    height:0;   /* Height is 0 so the height is produced by the padding */
+    background-repeat:no-repeat;
+    border:rgba(51, 23, 88, 0.692) solid 5px;
+}
+
+#aboutme {
+    float:right;
+    width:40%;
+}
+
+.art {
+    display:inline;
+    width:20%;
+    margin-right:20px;
+    border:rgba(51, 23, 88, 0.692) solid 5px;
+}
+
+.art:hover { 
+    transform:scale(2);
+}
+
+#showcase h1 {
+    text-align:center;
+    color:#fff;
+    font-size:50px;
+    line-height:1.6em;
+    padding-top:100px;
+}
+
+#main {
+    float:left;
+    width:70%;
+    padding:0 30px;
+    box-sizing:border-box;
+}
+
+.sidebar {
+    float:right;
+    width:30%;
+    background:#333;
+    color:#fff;
+    padding:20px;
+    box-sizing:border-box;
+}
+
+.me { 
+    width:65%;
+}
+
+.sidebar a {
+    color:white;
+    font-weight:bold;
+    font-size:150%;
+    display:block;
+    margin:20px 50px;
+}
+
+#main-footer {
+    background:#333;
+    color:#fff;
+    text-align:center;
+    padding:20px;
+    margin-top:40px;
+}
+
+a {
+    text-decoration:none;
+    color:rgba(112, 27, 223, 0.692);
+}
+
+a:hover {
+    text-decoration:underline;
+}
+
+#showcase .mobile { /* As a default, display in desktop view */
+    display:none;
+}
+
+@media(max-width:500px) { /* At or under 500 pixels then these properties will change */
+    #main {
+        width:100%;
+        float:none;
+    }
+
+    #sidebar {
+        width:100%;
+        float:none;
+    }
+
+    #showcase {
+        height: 200px;
+        background-position:48% 35%;
+        background-size:1485px 1250px;
+    }
+
+    #showcase .mobile { /* If screen is small enough, show mobile view */
+        display:block;
+    }
+
+    #showcase .desktop { /* Disable desktop view */
+        display:none;
+    }
+
+}
+
+@media screen and (max-width:700px) { /* Media query. if parenthesis item is true, this css will be added... */
+
+}
+
+@media screen and (min-width:800px) and (max-width:1000px) { /* Multiple conditions */
+    /* min-width applies at or over */
+}
