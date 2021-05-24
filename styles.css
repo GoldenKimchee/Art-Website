@@ -6,6 +6,10 @@ body {
     margin:0;
 }
 
+#showcase h1 {
+    margin-top:0;
+}
+
 @font-face {
     font-family:"default";
     src:url("text/Sansation_Light.ttf");
@@ -36,9 +40,15 @@ body {
 
 
 .art-container {
-    width: 80%;
+    display:grid;
+    grid-template-columns:1fr 1fr 1fr; /* Grid is split into 3 parts (fraction units) */
+    grid-template-columns:repeat(3, 1fr); /* 1st param is # of rows/columns. 2nd param is for each block */
+    grid-template-rows:repeat(4, 1fr);
+    grid-template:repeat(3,1fr) / repeat(4,1fr); /* Row / column */
+    grid-gap:1%;
+    width:80%;
     margin:inherit; 
-    margin:auto; 
+    margin:auto;
 }
 
 .main-header {
@@ -87,23 +97,21 @@ body {
     background-image:url("images/me.png");
     background-position:cover;
     background-size:cover; /* padding adds to height and width!!!! */
-    width:3%; /* padding is dependent on width of the element when defined in % */
-    padding:15%; /* padding should be 20% of the width of the containing element */
+    width:5%; /* padding is dependent on width of the element when defined in % */
+    padding:19% 16%; /* padding should be 20% of the width of the containing element */
     height:0;   /* Height is 0 so the height is produced by the padding */
     background-repeat:no-repeat;
     border:rgba(51, 23, 88, 0.692) solid 5px;
 }
 
-#aboutme {
-    float:right;
-    width:40%;
-}
-
 .art {
     display:inline;
-    width:20%;
-    margin-right:20px;
+    max-width:100%;
+    height:auto;
+    margin:5px;
     border:rgba(51, 23, 88, 0.692) solid 5px;
+    box-sizing:border-box;
+    padding:0;
 }
 
 .art:hover { 
@@ -135,7 +143,7 @@ body {
 }
 
 .me { 
-    width:65%;
+    width:60%;
 }
 
 .sidebar a {
@@ -167,13 +175,13 @@ a:hover {
     display:none;
 }
 
-@media(max-width:500px) { /* At or under 500 pixels then these properties will change */
+@media(max-width:600px) { /* At or under 500 pixels then these properties will change */
     #main {
         width:100%;
         float:none;
     }
 
-    #sidebar {
+    .sidebar {
         width:100%;
         float:none;
     }
@@ -192,10 +200,15 @@ a:hover {
         display:none;
     }
 
+    .art-container {
+        grid-template:repeat(4,1fr) / repeat(3,1fr);
+    }
 }
 
-@media screen and (max-width:700px) { /* Media query. if parenthesis item is true, this css will be added... */
-
+@media screen and (max-width:400px) { /* Media query. if parenthesis item is true, this css will be added... */
+    .art-container {
+        grid-template:repeat(6,1fr)/repeat(2,1fr);
+    }
 }
 
 @media screen and (min-width:800px) and (max-width:1000px) { /* Multiple conditions */
