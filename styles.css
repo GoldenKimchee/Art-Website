@@ -38,13 +38,16 @@ body {
     overflow:hidden;
 }
 
-
 .art-container {
     display:grid;
     grid-template-columns:1fr 1fr 1fr; /* Grid is split into 3 parts (fraction units) */
     grid-template-columns:repeat(3, 1fr); /* 1st param is # of rows/columns. 2nd param is for each block */
     grid-template-rows:repeat(4, 1fr);
     grid-template:repeat(3,1fr) / repeat(4,1fr); /* Row / column */
+    grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));
+    grid-auto-rows: 400px;
+    grid-auto-flow:row; /* Fills by going left to right for each row*/
+    grid-auto-flow:dense; /* tries to fill every spot */
     grid-gap:1%;
     width:80%;
     margin:inherit; 
@@ -54,6 +57,11 @@ body {
 .main-header {
     background-color:rgba(30, 6, 61, 0.692);
     color:#fff;
+}
+
+.large {
+    grid-column:auto/span 2; /* or... */
+    grid-column:span 2;
 }
 
 #navbar {
@@ -106,8 +114,12 @@ body {
 
 .art {
     display:inline;
+    /* This edit would make pic take up whole cell of parent element */
+    /*width:100%;
+    height:100%;
+    object-fit: cover;*/
+    /* end of edit */
     max-width:100%;
-    height:auto;
     margin:5px;
     border:rgba(51, 23, 88, 0.692) solid 5px;
     box-sizing:border-box;
@@ -146,7 +158,17 @@ body {
     width:60%;
 }
 
-.sidebar a {
+.sidebar p a {
+    color:white;
+    font-weight:bold;
+    font-size:100%;
+}
+
+.sidebar p a:hover {
+    text-decoration:underline;
+}
+
+.sidebar a.links {
     color:white;
     font-weight:bold;
     font-size:150%;
@@ -169,6 +191,17 @@ a {
 
 a:hover {
     text-decoration:underline;
+}
+
+.info {
+    border-radius: 10px;
+    padding:25px 40px;
+    background-color: rgba(30, 6, 61, 0.692);
+    color:white;
+}
+
+.info li a {
+    color:white;
 }
 
 #showcase .mobile { /* As a default, display in desktop view */
@@ -199,16 +232,10 @@ a:hover {
     #showcase .desktop { /* Disable desktop view */
         display:none;
     }
-
-    .art-container {
-        grid-template:repeat(4,1fr) / repeat(3,1fr);
-    }
 }
 
 @media screen and (max-width:400px) { /* Media query. if parenthesis item is true, this css will be added... */
-    .art-container {
-        grid-template:repeat(6,1fr)/repeat(2,1fr);
-    }
+
 }
 
 @media screen and (min-width:800px) and (max-width:1000px) { /* Multiple conditions */
