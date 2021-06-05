@@ -44,11 +44,11 @@ body {
     grid-template-columns:repeat(3, 1fr); /* 1st param is # of rows/columns. 2nd param is for each block */
     grid-template-rows:repeat(4, 1fr);
     grid-template:repeat(3,1fr) / repeat(4,1fr); /* Row / column */
-    grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));
-    grid-auto-rows: 400px;
+    grid-template-columns:repeat(auto-fit, minmax(250px, 1fr));
+    grid-auto-rows: min-content;
     grid-auto-flow:row; /* Fills by going left to right for each row*/
     grid-auto-flow:dense; /* tries to fill every spot */
-    grid-gap:1%;
+    grid-gap:10px;
     width:80%;
     margin:inherit; 
     margin:auto;
@@ -121,6 +121,7 @@ body {
     /* end of edit */
     max-width:100%;
     margin:5px;
+    margin-bottom:0;
     border:rgba(51, 23, 88, 0.692) solid 5px;
     box-sizing:border-box;
     padding:0;
@@ -191,6 +192,13 @@ a {
 
 a:hover {
     text-decoration:underline;
+}
+
+.art-container p {
+    margin-top:0;
+    background-color:#333;
+    color:white;
+    padding:10px;
 }
 
 .info {
